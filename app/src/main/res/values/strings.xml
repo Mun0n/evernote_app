@@ -4,5 +4,11 @@
     <string name="app_name">Evernote_app</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="login_password">PASSWORD</string>
+    <string name="login_user">USUARIO</string>
+    <string name="login_enter">ENTRAR</string>
+    <string name="error_login_title">Error login</string>
+    <string name="error_login_message">No se completó el login con éxito. Inténtelo otra vez.</string>
+    <string name="accept">Aceptar</string>
 
 </resources>

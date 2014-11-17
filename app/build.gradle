@@ -22,4 +22,7 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:support-v4:19.0.1'
+    compile 'com.jakewharton:butterknife:6.0.0'
+
+    compile project(':evernote_api')
 }
