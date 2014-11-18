@@ -2,5 +2,9 @@
 
     <color name="black_overlay">#66000000</color>
     <color name="green_bg">#6EB817</color>
+    <color name="colorPrimary">#6EB817</color>
+    <color name="colorPrimaryDark">#48790F</color>
+    <color name="accent">#ff5aee08</color>
+
 
 </resources>

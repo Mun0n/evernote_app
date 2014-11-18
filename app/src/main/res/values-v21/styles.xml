@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="@style/BaseTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+
+        <item name="android:textColorPrimary">@android:color/white</item>
+    </style>
+
+</resources>

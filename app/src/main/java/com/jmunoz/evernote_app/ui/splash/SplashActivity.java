@@ -62,22 +62,19 @@ public class SplashActivity extends Activity {
                     // Authentication was successful, do what you need to do in your app
                     Intent i = new Intent(getBaseContext(), HomeActivity.class);
                     startActivity(i);
-                    finish();
-
                 } else {
-//                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//                    builder.setTitle(R.string.error_login_title).setMessage(R.string.error_login_message).setCancelable(false).setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
-//                        @Override
-//                        public void onClick(DialogInterface dialogInterface, int i) {
-//                            dialogInterface.dismiss();
-//                            finish();
-//
-//                        }
-//                    });
-//                    AlertDialog alert = builder.create();
-//                    alert.setCancelable(false);
-//                    alert.show();
+                    new AlertDialog.Builder(this)
+                            .setTitle("Error en login")
+                            .setMessage("No ha podido realizarse el login en Evernote, intentelo de nuevo más tarde")
+                            .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    dialog.dismiss();
+                                }
+                            })
+                            .setIcon(android.R.drawable.ic_dialog_alert)
+                            .show();
                 }
+                finish();
                 break;
         }
     }

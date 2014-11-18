@@ -10,5 +10,11 @@
     <string name="error_login_title">Error login</string>
     <string name="error_login_message">No se completó el login con éxito. Inténtelo otra vez.</string>
     <string name="accept">Aceptar</string>
+    <string name="action_order_date">Ordenar por fecha</string>
+    <string name="action_order_title">Ordenar por título</string>
+    <string name="error_creating_notestore">Error creating notestore</string>
+    <string name="error_listing_notes">Error listing notebooks</string>
+    <string name="notes_searched">Searching notes has finished</string>
+    <string name="no_result_found">No se han encontrado notas</string>
 
 </resources>
