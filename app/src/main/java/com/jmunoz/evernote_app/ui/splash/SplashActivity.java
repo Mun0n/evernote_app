@@ -1,6 +1,7 @@
 package com.jmunoz.evernote_app.ui.splash;
 
 import com.evernote.client.android.EvernoteSession;
+import com.jmunoz.evernote_app.App;
 import com.jmunoz.evernote_app.R;
 import com.jmunoz.evernote_app.ui.home.HomeActivity;
 import com.jmunoz.evernote_app.ui.login.LoginActivity;
@@ -22,18 +23,6 @@ public class SplashActivity extends Activity {
 
     private final int SPLASH_DISPLAY_LENGHT = 1000;
 
-    public static EvernoteSession evernoteSession;
-
-    public static SplashActivity instance;
-
-    public SplashActivity(){
-        instance = this;
-    }
-
-    public static SplashActivity getInstance(){
-        return instance;
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +38,8 @@ public class SplashActivity extends Activity {
 
 //                    Intent i=new Intent(getBaseContext(),LoginActivity.class);
 //                    startActivity(i);
-
-                    evernoteSession = EvernoteSession.getInstance(getApplicationContext(), Constants.EvernoteConstants.CONSUMER_KEY, Constants.EvernoteConstants.CONSUMER_SECRET, Constants.EvernoteConstants.EVERNOTE_SERVICE, false);
+                    App app = (App) getApplication();
+                    EvernoteSession evernoteSession = app.getEvernoteSession();
                     evernoteSession.authenticate(SplashActivity.this);
 
                 } catch (Exception e) {
@@ -66,34 +55,31 @@ public class SplashActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        switch(requestCode) {
+        switch (requestCode) {
             // Update UI when oauth activity returns result
             case EvernoteSession.REQUEST_CODE_OAUTH:
                 if (resultCode == Activity.RESULT_OK) {
                     // Authentication was successful, do what you need to do in your app
-                    Intent i=new Intent(getBaseContext(),HomeActivity.class);
+                    Intent i = new Intent(getBaseContext(), HomeActivity.class);
                     startActivity(i);
                     finish();
 
-                }else{
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setTitle(R.string.error_login_title).setMessage(R.string.error_login_message).setCancelable(false).setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.dismiss();
-                            finish();
-
-                        }
-                    });
-                    AlertDialog alert = builder.create();
-                    alert.setCancelable(false);
-                    alert.show();
+                } else {
+//                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+//                    builder.setTitle(R.string.error_login_title).setMessage(R.string.error_login_message).setCancelable(false).setPositiveButton(R.string.accept, new DialogInterface.OnClickListener() {
+//                        @Override
+//                        public void onClick(DialogInterface dialogInterface, int i) {
+//                            dialogInterface.dismiss();
+//                            finish();
+//
+//                        }
+//                    });
+//                    AlertDialog alert = builder.create();
+//                    alert.setCancelable(false);
+//                    alert.show();
                 }
                 break;
         }
     }
 
-    public EvernoteSession getEvernoteSession(){
-        return evernoteSession;
-    }
 }

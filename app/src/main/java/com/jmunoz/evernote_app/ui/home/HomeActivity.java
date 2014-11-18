@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.jmunoz.evernote_app.App;
 import com.jmunoz.evernote_app.R;
 import com.jmunoz.evernote_app.ui.splash.SplashActivity;
 
@@ -28,7 +29,8 @@ public class HomeActivity extends Activity {
 
     private void updateAuthUi() {
         //show login button if logged out
-        if(SplashActivity.getInstance().getEvernoteSession().isLoggedIn()) {
+        App app = (App) getApplication();
+        if(app.getEvernoteSession().isLoggedIn()) {
             homeTextView.setText("ESTA LOGEADO!");
         }else{
             //MALA COSA
