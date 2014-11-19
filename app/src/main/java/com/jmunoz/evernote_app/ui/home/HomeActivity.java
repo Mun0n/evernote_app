@@ -34,6 +34,8 @@ import com.jmunoz.evernote_app.App;
 import com.jmunoz.evernote_app.BuildConfig;
 import com.jmunoz.evernote_app.R;
 import com.jmunoz.evernote_app.ui.splash.SplashActivity;
+import com.jmunoz.evernote_app.ui.toolbar.ToolbarActivity;
+import com.melnykov.fab.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,16 +46,16 @@ import butterknife.InjectView;
 /**
  * Created by jmunoz on 18/11/14.
  */
-public class HomeActivity extends ActionBarActivity {
+public class HomeActivity extends ToolbarActivity {
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
 
-    @InjectView(R.id.listNotes)
+    @InjectView(android.R.id.list)
     ListView listNotes;
 
     @InjectView(R.id.add_button)
-    View addButton;
+    FloatingActionButton addButton;
 
     private App app;
     private ArrayList<String> notesNames;
@@ -71,8 +73,8 @@ public class HomeActivity extends ActionBarActivity {
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, notesNames);
         listNotes.setEmptyView(findViewById(android.R.id.empty));
         listNotes.setAdapter(mAdapter);
+        addButton.attachToListView(listNotes);
 
-        initToolBar();
         findNotesByQuery("");
 
     }
@@ -90,9 +92,6 @@ public class HomeActivity extends ActionBarActivity {
                 .show();
     }
 
-    private void initToolBar() {
-        setSupportActionBar(toolbar);
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

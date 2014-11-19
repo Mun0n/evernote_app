@@ -11,7 +11,8 @@
 
         <item name="colorControlHighlight">@color/colorPrimary</item>
 
-        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorPrimary">@color/black_overlay</item>
+
 
     </style>
 

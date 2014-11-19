@@ -4,7 +4,6 @@ import com.evernote.client.android.EvernoteSession;
 import com.jmunoz.evernote_app.App;
 import com.jmunoz.evernote_app.R;
 import com.jmunoz.evernote_app.ui.home.HomeActivity;
-import com.jmunoz.evernote_app.ui.login.LoginActivity;
 import com.jmunoz.evernote_app.util.Constants;
 
 import android.app.Activity;
