@@ -16,5 +16,8 @@
     <string name="error_listing_notes">Error listing notebooks</string>
     <string name="notes_searched">Searching notes has finished</string>
     <string name="no_result_found">No se han encontrado notas</string>
+    <string name="detail_title">Título</string>
+    <string name="detail_content">Contenido de la nota</string>
+    <string name="action_add">Añadir nota</string>
 
 </resources>

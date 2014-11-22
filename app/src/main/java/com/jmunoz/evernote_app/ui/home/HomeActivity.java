@@ -3,6 +3,7 @@ package com.jmunoz.evernote_app.ui.home;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Outline;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -14,6 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -27,26 +29,36 @@ import com.evernote.edam.notestore.NoteMetadata;
 import com.evernote.edam.notestore.NotesMetadataList;
 import com.evernote.edam.notestore.NotesMetadataResultSpec;
 import com.evernote.edam.type.LinkedNotebook;
+import com.evernote.edam.type.Note;
 import com.evernote.edam.type.NoteSortOrder;
 import com.evernote.edam.type.Notebook;
 import com.evernote.thrift.transport.TTransportException;
 import com.jmunoz.evernote_app.App;
 import com.jmunoz.evernote_app.BuildConfig;
 import com.jmunoz.evernote_app.R;
+import com.jmunoz.evernote_app.ui.detail.DetailActivity;
 import com.jmunoz.evernote_app.ui.splash.SplashActivity;
 import com.jmunoz.evernote_app.ui.toolbar.ToolbarActivity;
 import com.melnykov.fab.FloatingActionButton;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import butterknife.OnClick;
+import butterknife.OnItemClick;
 
 /**
  * Created by jmunoz on 18/11/14.
  */
-public class HomeActivity extends ToolbarActivity {
+public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemClickListener {
+
+    private static final int CREATED_NOTE = 200;
+    public static final String NOTE_TITLE = "note_title";
+    public static final String NOTE_CONTENT = "note_content";
 
     @InjectView(R.id.toolbar)
     Toolbar toolbar;
@@ -59,6 +71,7 @@ public class HomeActivity extends ToolbarActivity {
 
     private App app;
     private ArrayList<String> notesNames;
+    private ArrayList<String> notesId;
     private ArrayAdapter<String> mAdapter;
 
     @Override
@@ -69,10 +82,12 @@ public class HomeActivity extends ToolbarActivity {
 
         app = (App) getApplication();
 
-        notesNames = new ArrayList();
+        notesNames = new ArrayList<String>();
+        notesId = new ArrayList<String>();
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, notesNames);
         listNotes.setEmptyView(findViewById(android.R.id.empty));
         listNotes.setAdapter(mAdapter);
+        listNotes.setOnItemClickListener(this);
         addButton.attachToListView(listNotes);
 
         findNotesByQuery("");
@@ -105,17 +120,30 @@ public class HomeActivity extends ToolbarActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_order_title:
+                sortByName(notesNames, mAdapter);
                 return true;
             case R.id.action_order_date:
+                findNotesByQuery("");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
         }
     }
 
+    private void sortByName(ArrayList<String> notesNames, ArrayAdapter<String> mAdapter) {
+        Collections.sort(notesNames, new Comparator<String>() {
+            @Override
+            public int compare(String s1, String s2) {
+                return s1.compareToIgnoreCase(s2);
+            }
+        });
+        mAdapter.notifyDataSetChanged();
+
+    }
+
     public void findNotesByQuery(String query) {
         final int offset = 0;
-        final int pageSize = 10;
+        final int pageSize = 40;
 
         final NoteFilter filter = new NoteFilter();
         filter.setOrder(NoteSortOrder.UPDATED.getValue());
@@ -125,7 +153,7 @@ public class HomeActivity extends ToolbarActivity {
 
         mAdapter.clear();
 
-        try{
+        try {
             // Callback invoked asynchronously from the notes search.  Factored out here
             // so that it can be reused for a local or linked notebook search below
             final OnClientCallback<NotesMetadataList> callback = new OnClientCallback<NotesMetadataList>() {
@@ -136,6 +164,7 @@ public class HomeActivity extends ToolbarActivity {
                     for (NoteMetadata note : data.getNotes()) {
                         String title = note.getTitle();
                         notesNames.add(title);
+                        notesId.add(note.getGuid());
                     }
                     mAdapter.notifyDataSetChanged();
                 }
@@ -147,7 +176,7 @@ public class HomeActivity extends ToolbarActivity {
             };
 
 
-            if(!app.getEvernoteSession().isAppLinkedNotebook()) {
+            if (!app.getEvernoteSession().isAppLinkedNotebook()) {
                 // Normal, local notebook search
                 app.getEvernoteSession().getClientFactory().createNoteStoreClient()
                         .findNotesMetadata(filter, offset, pageSize, spec, callback);
@@ -165,7 +194,7 @@ public class HomeActivity extends ToolbarActivity {
                     }
                 });
             }
-        } catch (TTransportException exception){
+        } catch (TTransportException exception) {
             onError(exception, "Error creating notestore. ", R.string.error_creating_notestore);
         }
     }
@@ -207,8 +236,47 @@ public class HomeActivity extends ToolbarActivity {
         }
     }
 
-    public void onError(Exception exception, String logstr, int id){
+    public void onError(Exception exception, String logstr, int id) {
         Log.e("TAG", logstr + exception);
         Toast.makeText(getApplicationContext(), id, Toast.LENGTH_LONG).show();
+    }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+        String id = notesId.get(i);
+        try {
+            app.getEvernoteSession().getClientFactory().createNoteStoreClient().getNote(id, true, false, false, false, new OnClientCallback<Note>() {
+                @Override
+                public void onSuccess(Note data) {
+                    Intent i = new Intent(getBaseContext(), DetailActivity.class);
+                    i.putExtra(NOTE_TITLE, data.getTitle());
+                    i.putExtra(NOTE_CONTENT, data.getContent());
+                    startActivity(i);
+                }
+
+                @Override
+                public void onException(Exception exception) {
+                    onError(exception, "Error creating recovering note. ", R.string.error_creating_notestore);
+                }
+            });
+        } catch (TTransportException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @OnClick(R.id.add_button)
+    public void onAddNoteClicked() {
+        Intent i = new Intent(getBaseContext(), DetailActivity.class);
+        startActivityForResult(i, CREATED_NOTE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == CREATED_NOTE && resultCode == RESULT_OK) {
+            findNotesByQuery("");
+        }
     }
 }
