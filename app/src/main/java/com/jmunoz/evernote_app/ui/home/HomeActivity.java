@@ -2,6 +2,7 @@ package com.jmunoz.evernote_app.ui.home;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Outline;
@@ -11,10 +12,12 @@ import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.Pair;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
@@ -36,6 +39,7 @@ import com.evernote.thrift.transport.TTransportException;
 import com.jmunoz.evernote_app.App;
 import com.jmunoz.evernote_app.BuildConfig;
 import com.jmunoz.evernote_app.R;
+import com.jmunoz.evernote_app.data.NoteData;
 import com.jmunoz.evernote_app.ui.detail.DetailActivity;
 import com.jmunoz.evernote_app.ui.splash.SplashActivity;
 import com.jmunoz.evernote_app.ui.toolbar.ToolbarActivity;
@@ -70,9 +74,8 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
     FloatingActionButton addButton;
 
     private App app;
-    private ArrayList<String> notesNames;
-    private ArrayList<String> notesId;
-    private ArrayAdapter<String> mAdapter;
+    private ArrayList<NoteData> notesArray;
+    private ArrayAdapter<NoteData> mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,9 +85,8 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
 
         app = (App) getApplication();
 
-        notesNames = new ArrayList<String>();
-        notesId = new ArrayList<String>();
-        mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, notesNames);
+        notesArray = new ArrayList<NoteData>();
+        mAdapter = new TitleArrayAdapter(this, android.R.layout.simple_list_item_1, notesArray);
         listNotes.setEmptyView(findViewById(android.R.id.empty));
         listNotes.setAdapter(mAdapter);
         listNotes.setOnItemClickListener(this);
@@ -120,7 +122,7 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_order_title:
-                sortByName(notesNames, mAdapter);
+                sortByName(notesArray, mAdapter);
                 return true;
             case R.id.action_order_date:
                 findNotesByQuery("");
@@ -130,10 +132,12 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
         }
     }
 
-    private void sortByName(ArrayList<String> notesNames, ArrayAdapter<String> mAdapter) {
-        Collections.sort(notesNames, new Comparator<String>() {
+    private void sortByName(ArrayList<NoteData> notesData, ArrayAdapter<NoteData> mAdapter) {
+        Collections.sort(notesData, new Comparator<NoteData>() {
             @Override
-            public int compare(String s1, String s2) {
+            public int compare(NoteData noteData, NoteData noteData2) {
+                String s1 = noteData.getTitle();
+                String s2 = noteData2.getTitle();
                 return s1.compareToIgnoreCase(s2);
             }
         });
@@ -163,8 +167,8 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
 
                     for (NoteMetadata note : data.getNotes()) {
                         String title = note.getTitle();
-                        notesNames.add(title);
-                        notesId.add(note.getGuid());
+                        NoteData dataNote = new NoteData(title, note.getGuid());
+                        notesArray.add(dataNote);
                     }
                     mAdapter.notifyDataSetChanged();
                 }
@@ -244,7 +248,7 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        String id = notesId.get(i);
+        String id = notesArray.get(i).getId();
         try {
             app.getEvernoteSession().getClientFactory().createNoteStoreClient().getNote(id, true, false, false, false, new OnClientCallback<Note>() {
                 @Override
@@ -279,4 +283,64 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
             findNotesByQuery("");
         }
     }
+
+    private class TitleArrayAdapter extends ArrayAdapter<NoteData>{
+
+        private Activity activity;
+        private ArrayList<NoteData> noteDatas;
+        private LayoutInflater inflater = null;
+
+        public TitleArrayAdapter(Activity activity, int textViewId, ArrayList<NoteData> noteDatas){
+            super(activity, textViewId, noteDatas);
+            this.activity = activity;
+            this.noteDatas = noteDatas;
+
+            inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        }
+
+        @Override
+        public int getCount() {
+            return noteDatas.size();
+        }
+
+        public NoteData getItem(NoteData position){
+            return position;
+        }
+
+        public long getItemId(int position) {
+            return position;
+        }
+
+        public class ViewHolder{
+            public TextView display_name;
+        }
+
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View vi = convertView;
+            final ViewHolder holder;
+            try {
+                if (convertView == null) {
+                    vi = inflater.inflate(R.layout.list_adapter_title, null);
+                    holder = new ViewHolder();
+
+                    holder.display_name = (TextView) vi.findViewById(R.id.title);
+
+                    vi.setTag(holder);
+                } else {
+                    holder = (ViewHolder) vi.getTag();
+                }
+
+
+
+                holder.display_name.setText(noteDatas.get(position).getTitle());
+
+
+            } catch (Exception e) {
+
+
+            }
+            return vi;
+        }
+    }
+
 }

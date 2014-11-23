@@ -7,4 +7,8 @@
         android:icon="@drawable/ic_action_accept"
         evernote:showAsAction="always" />
 
+    <item android:id="@+id/action_change_focus"
+        android:title="@string/move_focus"
+        evernote:showAsAction="never"/>
+
 </menu>

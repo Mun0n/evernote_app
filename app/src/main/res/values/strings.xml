@@ -19,5 +19,10 @@
     <string name="detail_title">Título</string>
     <string name="detail_content">Contenido de la nota</string>
     <string name="action_add">Añadir nota</string>
+    <string name="keyboard">Teclado</string>
+    <string name="gestures">Gestos</string>
+    <string name="dialog_method_title">Elija modo de escritura</string>
+    <string name="dialog_method_text">¿Cómo desea escribir la nota?</string>
+    <string name="move_focus">Mueve el foco</string>
 
 </resources>
