@@ -45,8 +45,6 @@ public class DetailActivity extends ToolbarActivity implements GestureOverlayVie
     @InjectView(R.id.gestures)
     public GestureOverlayView gesturesView;
 
-    private Menu menu;
-
     private App app;
     private String title, content;
 

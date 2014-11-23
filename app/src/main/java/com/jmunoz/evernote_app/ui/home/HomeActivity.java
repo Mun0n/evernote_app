@@ -64,9 +64,6 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
     public static final String NOTE_TITLE = "note_title";
     public static final String NOTE_CONTENT = "note_content";
 
-    @InjectView(R.id.toolbar)
-    Toolbar toolbar;
-
     @InjectView(android.R.id.list)
     ListView listNotes;
 
