@@ -97,7 +97,7 @@ public class DetailActivity extends ToolbarActivity implements GestureOverlayVie
                     createNote(titleEditText.getText().toString(), contentEditText.getText().toString());
                     return true;
                 case R.id.action_change_focus:
-
+                    //To change focus on editText, necessary to write in both with the gestures
                     if (focusTitle) {
                         txtToDisplay = contentEditText.getText().toString();
                         focusTitle = false;
@@ -118,6 +118,9 @@ public class DetailActivity extends ToolbarActivity implements GestureOverlayVie
         }
     }
 
+    /**
+     * Enable gestures input or keyboard
+     */
     private void selectInputMode() {
         new AlertDialog.Builder(this)
                 .setTitle(R.string.dialog_method_title)
@@ -148,6 +151,13 @@ public class DetailActivity extends ToolbarActivity implements GestureOverlayVie
                 .show();
     }
 
+
+    /**
+     * Create notes in Evernote Sandbox server
+     * @param title note's title
+     * @param content note's content
+     * @throws TTransportException
+     */
     public void createNote(String title, String content) throws TTransportException {
         if (app.getEvernoteSession().isLoggedIn()) {
             Note note = new Note();

@@ -30,15 +30,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e640e471-0bd7-47ce-af4b-49172e027e82" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/raw/abc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/data/NoteData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/res/layout/list_adapter_title.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/home/NoteAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/detail/DetailActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/detail/DetailActivity.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/home/HomeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/home/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/detail_activity.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/detail_activity.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/menu/detail_activity_actions.xml" afterPath="$PROJECT_DIR$/app/src/main/res/menu/detail_activity_actions.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/floatingactionbutton_1_0_7.xml" afterPath="$PROJECT_DIR$/.idea/libraries/floatingactionbutton_1_0_7.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/data/NoteData.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/data/NoteData.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Evernote_app.iws" />
@@ -62,41 +57,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SplashActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/splash/SplashActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="479" max-vertical-offset="1095">
-              <caret line="73" column="36" selection-start-line="64" selection-start-column="20" selection-end-line="73" selection-end-column="36" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AndroidManifest.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="720">
-              <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HomeActivity.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="HomeActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/home/HomeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.64603484" vertical-offset="4481" max-vertical-offset="5220">
-              <caret line="325" column="79" selection-start-line="325" selection-start-column="79" selection-end-line="325" selection-end-column="79" />
+            <state vertical-scroll-proportion="4.3461537" vertical-offset="2528" max-vertical-offset="4425">
+              <caret line="161" column="2" selection-start-line="161" selection-start-column="2" selection-end-line="161" selection-end-column="2" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4624#4920#0" expanded="true" />
-                <element signature="e#4909#4910#0" expanded="true" />
-                <element signature="e#11796#11797#0" expanded="true" />
-                <element signature="e#11843#11844#0" expanded="true" />
-                <element signature="e#11896#11897#0" expanded="true" />
-                <element signature="e#11935#11936#0" expanded="true" />
-                <element signature="e#11982#11983#0" expanded="true" />
-                <element signature="e#12021#12022#0" expanded="true" />
+                <element signature="e#4172#4468#0" expanded="true" />
+                <element signature="e#4457#4458#0" expanded="true" />
+                <element signature="e#5989#6017#0" expanded="true" />
+                <element signature="e#7095#7128#0" expanded="true" />
+                <element signature="e#9021#9022#0" expanded="true" />
+                <element signature="e#9092#9093#0" expanded="true" />
+                <element signature="e#10244#10277#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="NoteAdapter.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/home/NoteAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1230">
+              <caret line="54" column="80" selection-start-line="54" selection-start-column="80" selection-end-line="54" selection-end-column="80" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#947#948#0" expanded="true" />
+                <element signature="e#986#987#0" expanded="true" />
+                <element signature="e#1035#1036#0" expanded="true" />
+                <element signature="e#1066#1067#0" expanded="true" />
+                <element signature="e#1109#1110#0" expanded="true" />
+                <element signature="e#1140#1141#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,31 +112,31 @@
       <file leaf-file-name="NoteData.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/data/NoteData.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-              <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+              <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
               <folding>
-                <element signature="e#420#421#0" expanded="true" />
-                <element signature="e#445#446#0" expanded="true" />
+                <element signature="e#439#440#0" expanded="true" />
+                <element signature="e#464#465#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DetailActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DetailActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/detail/DetailActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2399" max-vertical-offset="2955">
-              <caret line="94" column="39" selection-start-line="94" selection-start-column="39" selection-end-line="94" selection-end-column="39" />
+            <state vertical-scroll-proportion="-1.6415094" vertical-offset="2400" max-vertical-offset="3105">
+              <caret line="102" column="43" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3828#3856#0" expanded="true" />
-                <element signature="e#3886#3913#0" expanded="true" />
-                <element signature="e#3950#3967#0" expanded="true" />
-                <element signature="e#3969#4230#0" expanded="true" />
-                <element signature="e#4211#4212#0" expanded="true" />
-                <element signature="e#4267#4284#0" expanded="true" />
-                <element signature="e#4286#5091#0" expanded="true" />
-                <element signature="e#5072#5073#0" expanded="true" />
+                <element signature="e#3980#4008#0" expanded="true" />
+                <element signature="e#4038#4065#0" expanded="true" />
+                <element signature="e#4102#4119#0" expanded="true" />
+                <element signature="e#4121#4382#0" expanded="true" />
+                <element signature="e#4363#4364#0" expanded="true" />
+                <element signature="e#4419#4436#0" expanded="true" />
+                <element signature="e#4438#5243#0" expanded="true" />
+                <element signature="e#5224#5225#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1903,10 +1895,11 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/detail_activity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/detail_activity_gestures_action.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/menu/detail_activity_actions.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/detail/DetailActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/data/NoteData.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/list_adapter_title.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/home/NoteAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/data/NoteData.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/home/HomeActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/detail/DetailActivity.java" />
       </list>
     </option>
   </component>
@@ -2686,7 +2679,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24177396" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32754344" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27543426" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27543426" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24964234" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2729,25 +2722,11 @@
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/home/HomeActivity.java</url>
-          <line>322</line>
-          <properties />
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
       </breakpoints>
       <option name="time" value="9" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="360" max-vertical-offset="525">
-          <caret line="24" column="53" selection-start-line="24" selection-start-column="53" selection-end-line="24" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/splash/SplashActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1566">
@@ -2762,14 +2741,13 @@
           <caret line="187" column="81" selection-start-line="187" selection-start-column="81" selection-end-line="187" selection-end-column="81" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4624#4920#0" expanded="true" />
-            <element signature="e#4909#4910#0" expanded="true" />
-            <element signature="e#11796#11797#0" expanded="true" />
-            <element signature="e#11843#11844#0" expanded="true" />
-            <element signature="e#11896#11897#0" expanded="true" />
-            <element signature="e#11935#11936#0" expanded="true" />
-            <element signature="e#11982#11983#0" expanded="true" />
-            <element signature="e#12021#12022#0" expanded="true" />
+            <element signature="e#4172#4468#0" expanded="true" />
+            <element signature="e#4457#4458#0" expanded="true" />
+            <element signature="e#5989#6017#0" expanded="true" />
+            <element signature="e#7095#7128#0" expanded="true" />
+            <element signature="e#9021#9022#0" expanded="true" />
+            <element signature="e#9092#9093#0" expanded="true" />
+            <element signature="e#10244#10277#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2834,14 +2812,13 @@
           <caret line="75" column="29" selection-start-line="75" selection-start-column="29" selection-end-line="75" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4624#4920#0" expanded="true" />
-            <element signature="e#4909#4910#0" expanded="true" />
-            <element signature="e#11796#11797#0" expanded="true" />
-            <element signature="e#11843#11844#0" expanded="true" />
-            <element signature="e#11896#11897#0" expanded="true" />
-            <element signature="e#11935#11936#0" expanded="true" />
-            <element signature="e#11982#11983#0" expanded="true" />
-            <element signature="e#12021#12022#0" expanded="true" />
+            <element signature="e#4172#4468#0" expanded="true" />
+            <element signature="e#4457#4458#0" expanded="true" />
+            <element signature="e#5989#6017#0" expanded="true" />
+            <element signature="e#7095#7128#0" expanded="true" />
+            <element signature="e#9021#9022#0" expanded="true" />
+            <element signature="e#9092#9093#0" expanded="true" />
+            <element signature="e#10244#10277#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2899,14 +2876,13 @@
           <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4624#4920#0" expanded="true" />
-            <element signature="e#4909#4910#0" expanded="true" />
-            <element signature="e#11796#11797#0" expanded="true" />
-            <element signature="e#11843#11844#0" expanded="true" />
-            <element signature="e#11896#11897#0" expanded="true" />
-            <element signature="e#11935#11936#0" expanded="true" />
-            <element signature="e#11982#11983#0" expanded="true" />
-            <element signature="e#12021#12022#0" expanded="true" />
+            <element signature="e#4172#4468#0" expanded="true" />
+            <element signature="e#4457#4458#0" expanded="true" />
+            <element signature="e#5989#6017#0" expanded="true" />
+            <element signature="e#7095#7128#0" expanded="true" />
+            <element signature="e#9021#9022#0" expanded="true" />
+            <element signature="e#9092#9093#0" expanded="true" />
+            <element signature="e#10244#10277#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3120,26 +3096,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="29" max-vertical-offset="720">
-          <caret line="36" column="51" selection-start-line="36" selection-start-column="51" selection-end-line="36" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/home_activity_actions.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.053956833" vertical-offset="0" max-vertical-offset="556">
           <caret line="2" column="60" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="60" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/splash/SplashActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="479" max-vertical-offset="1095">
-          <caret line="73" column="36" selection-start-line="64" selection-start-column="20" selection-end-line="73" selection-end-column="36" />
           <folding />
         </state>
       </provider>
@@ -3168,35 +3128,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/detail/DetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2399" max-vertical-offset="2955">
-          <caret line="94" column="39" selection-start-line="94" selection-start-column="39" selection-end-line="94" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3828#3856#0" expanded="true" />
-            <element signature="e#3886#3913#0" expanded="true" />
-            <element signature="e#3950#3967#0" expanded="true" />
-            <element signature="e#3969#4230#0" expanded="true" />
-            <element signature="e#4211#4212#0" expanded="true" />
-            <element signature="e#4267#4284#0" expanded="true" />
-            <element signature="e#4286#5091#0" expanded="true" />
-            <element signature="e#5072#5073#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/data/NoteData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
-          <folding>
-            <element signature="e#420#421#0" expanded="true" />
-            <element signature="e#445#446#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/list_adapter_title.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -3210,20 +3141,80 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/home/HomeActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.64603484" vertical-offset="4481" max-vertical-offset="5220">
-          <caret line="325" column="79" selection-start-line="325" selection-start-column="79" selection-end-line="325" selection-end-column="79" />
+        <state vertical-scroll-proportion="0.107913665" vertical-offset="0" max-vertical-offset="720">
+          <caret line="4" column="63" selection-start-line="4" selection-start-column="63" selection-end-line="4" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/splash/SplashActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8381295" vertical-offset="104" max-vertical-offset="1095">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/home/NoteAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1230">
+          <caret line="54" column="80" selection-start-line="54" selection-start-column="80" selection-end-line="54" selection-end-column="80" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4624#4920#0" expanded="true" />
-            <element signature="e#4909#4910#0" expanded="true" />
-            <element signature="e#11796#11797#0" expanded="true" />
-            <element signature="e#11843#11844#0" expanded="true" />
-            <element signature="e#11896#11897#0" expanded="true" />
-            <element signature="e#11935#11936#0" expanded="true" />
-            <element signature="e#11982#11983#0" expanded="true" />
-            <element signature="e#12021#12022#0" expanded="true" />
+            <element signature="e#947#948#0" expanded="true" />
+            <element signature="e#986#987#0" expanded="true" />
+            <element signature="e#1035#1036#0" expanded="true" />
+            <element signature="e#1066#1067#0" expanded="true" />
+            <element signature="e#1109#1110#0" expanded="true" />
+            <element signature="e#1140#1141#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/data/NoteData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="495">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+          <folding>
+            <element signature="e#439#440#0" expanded="true" />
+            <element signature="e#464#465#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/home/HomeActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="4.3461537" vertical-offset="2528" max-vertical-offset="4425">
+          <caret line="161" column="2" selection-start-line="161" selection-start-column="2" selection-end-line="161" selection-end-column="2" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4172#4468#0" expanded="true" />
+            <element signature="e#4457#4458#0" expanded="true" />
+            <element signature="e#5989#6017#0" expanded="true" />
+            <element signature="e#7095#7128#0" expanded="true" />
+            <element signature="e#9021#9022#0" expanded="true" />
+            <element signature="e#9092#9093#0" expanded="true" />
+            <element signature="e#10244#10277#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/jmunoz/evernote_app/ui/detail/DetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.6415094" vertical-offset="2400" max-vertical-offset="3105">
+          <caret line="102" column="43" selection-start-line="102" selection-start-column="43" selection-end-line="102" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3980#4008#0" expanded="true" />
+            <element signature="e#4038#4065#0" expanded="true" />
+            <element signature="e#4102#4119#0" expanded="true" />
+            <element signature="e#4121#4382#0" expanded="true" />
+            <element signature="e#4363#4364#0" expanded="true" />
+            <element signature="e#4419#4436#0" expanded="true" />
+            <element signature="e#4438#5243#0" expanded="true" />
+            <element signature="e#5224#5225#0" expanded="true" />
           </folding>
         </state>
       </provider>

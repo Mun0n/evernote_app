@@ -2,6 +2,7 @@ package com.jmunoz.evernote_app.data;
 
 /**
  * Created by jmunoz on 23/11/14.
+ * Note data model
  */
 public class NoteData {
 

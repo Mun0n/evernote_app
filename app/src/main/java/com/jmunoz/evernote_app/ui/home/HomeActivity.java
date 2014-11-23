@@ -86,7 +86,7 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
         app = (App) getApplication();
 
         notesArray = new ArrayList<NoteData>();
-        mAdapter = new TitleArrayAdapter(this, android.R.layout.simple_list_item_1, notesArray);
+        mAdapter = new NoteAdapter(this, android.R.layout.simple_list_item_1, notesArray);
         listNotes.setEmptyView(findViewById(android.R.id.empty));
         listNotes.setAdapter(mAdapter);
         listNotes.setOnItemClickListener(this);
@@ -95,20 +95,6 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
         findNotesByQuery("");
 
     }
-
-    private void showError() {
-        new AlertDialog.Builder(this)
-                .setTitle("Error en home")
-                .setMessage("No han podido cargarse las notas. Intentelo de nuevo más tarde")
-                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .setIcon(android.R.drawable.ic_dialog_alert)
-                .show();
-    }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -132,6 +118,12 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
         }
     }
 
+
+    /**
+     * Sorting notes method
+     * @param notesData notes list
+     * @param mAdapter adapter
+     */
     private void sortByName(ArrayList<NoteData> notesData, ArrayAdapter<NoteData> mAdapter) {
         Collections.sort(notesData, new Comparator<NoteData>() {
             @Override
@@ -145,6 +137,10 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
 
     }
 
+    /**
+     * Query to Evernote to get notes
+     * @param query
+     */
     public void findNotesByQuery(String query) {
         final int offset = 0;
         final int pageSize = 40;
@@ -163,7 +159,7 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
             final OnClientCallback<NotesMetadataList> callback = new OnClientCallback<NotesMetadataList>() {
                 @Override
                 public void onSuccess(NotesMetadataList data) {
-                    Toast.makeText(getApplicationContext(), R.string.notes_searched, Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getApplicationContext(), R.string.notes_searched, Toast.LENGTH_LONG).show();
 
                     for (NoteMetadata note : data.getNotes()) {
                         String title = note.getTitle();
@@ -203,6 +199,10 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
         }
     }
 
+    /**
+     *
+     * @param callback
+     */
     protected void invokeOnAppLinkedNotebook(final OnClientCallback<Pair<AsyncLinkedNoteStoreClient, LinkedNotebook>> callback) {
         try {
             // We need to get the one and only linked notebook
@@ -253,7 +253,7 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
             app.getEvernoteSession().getClientFactory().createNoteStoreClient().getNote(id, true, false, false, false, new OnClientCallback<Note>() {
                 @Override
                 public void onSuccess(Note data) {
-                    Intent i = new Intent(getBaseContext(), DetailActivity.class);
+                    Intent i = new Intent(getApplicationContext(), DetailActivity.class);
                     i.putExtra(NOTE_TITLE, data.getTitle());
                     i.putExtra(NOTE_CONTENT, data.getContent());
                     startActivity(i);
@@ -272,7 +272,7 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
 
     @OnClick(R.id.add_button)
     public void onAddNoteClicked() {
-        Intent i = new Intent(getBaseContext(), DetailActivity.class);
+        Intent i = new Intent(getApplicationContext(), DetailActivity.class);
         startActivityForResult(i, CREATED_NOTE);
     }
 
@@ -284,63 +284,6 @@ public class HomeActivity extends ToolbarActivity implements AdapterView.OnItemC
         }
     }
 
-    private class TitleArrayAdapter extends ArrayAdapter<NoteData>{
 
-        private Activity activity;
-        private ArrayList<NoteData> noteDatas;
-        private LayoutInflater inflater = null;
-
-        public TitleArrayAdapter(Activity activity, int textViewId, ArrayList<NoteData> noteDatas){
-            super(activity, textViewId, noteDatas);
-            this.activity = activity;
-            this.noteDatas = noteDatas;
-
-            inflater = (LayoutInflater) activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        }
-
-        @Override
-        public int getCount() {
-            return noteDatas.size();
-        }
-
-        public NoteData getItem(NoteData position){
-            return position;
-        }
-
-        public long getItemId(int position) {
-            return position;
-        }
-
-        public class ViewHolder{
-            public TextView display_name;
-        }
-
-        public View getView(int position, View convertView, ViewGroup parent) {
-            View vi = convertView;
-            final ViewHolder holder;
-            try {
-                if (convertView == null) {
-                    vi = inflater.inflate(R.layout.list_adapter_title, null);
-                    holder = new ViewHolder();
-
-                    holder.display_name = (TextView) vi.findViewById(R.id.title);
-
-                    vi.setTag(holder);
-                } else {
-                    holder = (ViewHolder) vi.getTag();
-                }
-
-
-
-                holder.display_name.setText(noteDatas.get(position).getTitle());
-
-
-            } catch (Exception e) {
-
-
-            }
-            return vi;
-        }
-    }
 
 }
